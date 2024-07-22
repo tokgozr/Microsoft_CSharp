@@ -1,6 +1,3 @@
-// using System;
-
-// #1 the ourAnimals array will store the following: 
 string animalSpecies = "";
 string animalID = "";
 string animalAge = "";
@@ -9,16 +6,13 @@ string animalPersonalityDescription = "";
 string animalNickname = "";
 string suggestedDonation = "";
 
-// #2 variables that support data entry
 int maxPets = 8;
 string? readResult;
 string menuSelection = "";
 decimal decimalDonation = 0.00m;
 
-// #3 array used to store runtime data, there is no persisted data
 string[,] ourAnimals = new string[maxPets, 7];
 
-// #4 create sample data ourAnimals array entries
 for (int i = 0; i < maxPets; i++)
 {
     switch (i)
@@ -89,10 +83,9 @@ for (int i = 0; i < maxPets; i++)
     ourAnimals[i, 6] = $"Suggested Donation: {decimalDonation:C2}";
 }
 
-// #5 display the top-level menu options
 do
 {
-    // NOTE: the Console.Clear method is throwing an exception in debug sessions
+  
     Console.Clear();
 
     Console.WriteLine("Welcome to the Contoso PetFriends app. Your main menu options are:");
@@ -107,11 +100,11 @@ do
         menuSelection = readResult.ToLower();
     }
 
-    // use switch-case to process the selected menu option
+    
     switch (menuSelection)
     {
         case "1":
-            // list all pet info
+           
             for (int i = 0; i < maxPets; i++)
             {
                 if (ourAnimals[i, 0] != "ID #: ")
@@ -129,13 +122,13 @@ do
             break;
 
         case "2":
-            // Display all dogs with a specified characteristic");
+            
 
             string dogCharacteristic = "";
 
             while (dogCharacteristic == "")
             {
-                // have the user enter physical characteristics to search for
+                
                 Console.WriteLine($"\nEnter one desired dog characteristics to search for");
                 readResult = Console.ReadLine();
                 if (readResult != null)
@@ -147,7 +140,7 @@ do
             bool noMatchesDog = true;
             string dogDescription = "";
 
-            // #6 loop through the ourAnimals array to search for matching animals
+            
             for (int i = 0; i < maxPets; i++)
             {
                 bool dogMatch = true;
@@ -157,7 +150,7 @@ do
                     
                     if (dogMatch == true)
                     {
-                        // #7 Search combined descriptions and report results
+                      
                         dogDescription = ourAnimals[i, 4] + "\n" + ourAnimals[i, 5];
                         
 
